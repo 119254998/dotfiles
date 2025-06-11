@@ -1,0 +1,78 @@
+
+{
+    // "layer": "top", // Waybar at top layer
+     "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 24, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": [],
+    //"modules-right": ["pulseaudio", "network", "backlight","cpu","memory","battery", "battery#bat2", "clock", "tray"],
+    "modules-right": ["network", "pulseaudio", "backlight", "battery", "clock"],
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%I:%M}",
+        // "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%A, %B %d, %Y}",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#ffffff'><b>{}</b></span>",
+                "days":       "<span color='#ffffff'><b>{}</b></span>",
+                "weeks":      "<span color='#e6fcf4'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffe0a3'><b>{}</b></span>",
+                "today":      "<span background='#af8787' color='black'>{}</span>"
+            }
+        },
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "s:{percent}%",
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 20,
+            "critical": 10
+        },
+        "interval": 2,
+        "format": "b:{capacity}%",
+        "format-charging": "b:{capacity}%",
+        "format-plugged": "b:{capacity}%",
+        "format-alt": "{time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        // "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        // "format-wifi": "{essid} ({signalStrength}%) ",
+        // "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        // "format-linked": "{ifname} (No IP) ",
+        "format-wifi": "",
+        "format-disconnected": "disconnected",
+        "format-ethernet": "",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "v:{volume}%",
+        "format-bluetooth": "v:{volume}%",
+        "format-bluetooth-muted": "!",
+        "format-muted": "v:mu%",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "on-click": "pavucontrol"
+    },
+}
