@@ -14,6 +14,7 @@ Plug('echasnovski/mini.ai') -- better text objects
 Plug('echasnovski/mini.pairs') -- (), [], {}!
 Plug('mason-org/mason.nvim') -- language stuff manager (LSPs, DAPs, linters, formatters, etc,.)
 Plug('akinsho/toggleterm.nvim', {['tag'] = '*'}) -- terminal that kinda sux lox
+Plug('lewis6991/gitsigns.nvim')
 
 vim.call('plug#end')
 
@@ -27,6 +28,7 @@ require('plugins.barbar')
 require('plugins.mini')
 require('plugins.mason')
 require('plugins.toggleterm')
+require('plugins.gitsigns')
 
 require('cfg.options')
 require('cfg.keymaps')
