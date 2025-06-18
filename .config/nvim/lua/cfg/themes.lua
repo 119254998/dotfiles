@@ -32,3 +32,12 @@ require('evergarden').setup({
   overrides = {},
   color_overrides = {},
 })
+
+require('everforest').setup({
+  background = 'hard',
+  transparent_background_level = 3, -- i think 2 is the max, but it allows 3
+  italics = false,
+  disable_italic_comments = true,
+  ui_contrast = 'high',
+  -- vim.cmd(":lua require'lualine'.setup {options = {theme = 'everforest'}}")
+})
