@@ -8,6 +8,7 @@ vim.g.maplocalleader = ' '
 
 map('i', '<C-\\>', 'λ') -- yummy lambda
 map('n', '<Esc>', '<cmd>nohlsearch<CR>') -- clear hl from search, not a toggle
+map('t', '<Esc><Esc>', '<C-\\><C-n><CR>:ToggleTerm<CR>')
 
 -- window navigation
 map('n', '<A-Left>', '<C-w>h')
