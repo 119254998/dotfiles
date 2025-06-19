@@ -22,9 +22,8 @@ Plug('neovim/nvim-lspconfig') -- yep!
 Plug('mason-org/mason-lspconfig.nvim') -- mason uses lspconfig names
 Plug('WhoIsSethDaniel/mason-tool-installer.nvim') -- automates mason stuff
 Plug('j-hui/fidget.nvim') -- nvim notification ui/lsp progress messages
-Plug('rafamadriz/friendly-snippets') -- snippet collection
-Plug('L3MON4D3/LuaSnip', { ['tag'] = 'v2.*', ['do'] = 'make install_jsregexp' })
-Plug('saghen/blink.cmp') -- completion
+Plug('saghen/blink.cmp', { ['tag'] = 'v1.*'}) -- completion
+Plug('rachartier/tiny-inline-diagnostic.nvim')
 
 vim.call('plug#end')
 
@@ -43,6 +42,7 @@ require('plugins.mason-lspconfig')
 require('plugins.mason-tool-installer')
 require('plugins.fidget')
 require('plugins.blink')
+require('plugins.diagnostics')
 
 require('cfg.options')
 require('cfg.keymaps')

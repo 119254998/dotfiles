@@ -10,27 +10,15 @@ require('mason-tool-installer').setup {
     -- you can turn off/on auto_update per tool
     { 'bash-language-server', auto_update = true },
 
-    'gopls',
     'lua-language-server',
     'vim-language-server',
     'stylua',
     'shellcheck',
     'editorconfig-checker',
-    'gofumpt',
-    'golines',
-    'gomodifytags',
-    'gotests',
-    'impl',
-    'json-to-struct',
     'luacheck',
-    'misspell',
-    'revive',
-    'shellcheck',
     'shfmt',
-    'staticcheck',
     'vint',
     'rust-analyzer',
-    'ocamllsp',
   },
 
   -- if set to true this will check each tool for updates. If updates
