@@ -15,7 +15,7 @@ Plug('echasnovski/mini.ai') -- better text objects NOT artificial intelligence
 Plug('echasnovski/mini.pairs') -- (), [], {}!
 Plug('echasnovski/mini.surround') -- add/replace/delete surrounding stuff
 Plug('mason-org/mason.nvim') -- language stuff manager (LSPs, linters, formatters, etc,.)
-Plug('akinsho/toggleterm.nvim', {['tag'] = '*'}) -- terminal that kinda sux lox
+Plug('akinsho/toggleterm.nvim', {['tag'] = '*'}) -- terminal buffer management help
 Plug('lewis6991/gitsigns.nvim') -- git signs in sign column !
 Plug('folke/todo-comments.nvim') -- fancy reverse highlighting on todos, etc,.
 Plug('neovim/nvim-lspconfig') -- yep!
@@ -23,7 +23,7 @@ Plug('mason-org/mason-lspconfig.nvim') -- mason uses lspconfig names
 Plug('WhoIsSethDaniel/mason-tool-installer.nvim') -- automates mason stuff
 Plug('j-hui/fidget.nvim') -- nvim notification ui/lsp progress messages
 Plug('saghen/blink.cmp', { ['tag'] = 'v1.*'}) -- completion
-Plug('rachartier/tiny-inline-diagnostic.nvim')
+Plug('rachartier/tiny-inline-diagnostic.nvim') -- minimal diagnostics
 
 vim.call('plug#end')
 

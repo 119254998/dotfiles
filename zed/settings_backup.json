@@ -1,0 +1,87 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "vim_mode": true,
+    "theme": {
+        "mode": "system",
+        "light": "One Dark",
+        "dark": "catbreath"
+    },
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "features": {
+        "copilot": false,
+        "inline_completion_provider": "none"
+    },
+    "buffer_font_family": "monospace",
+    "buffer_font_weight": 400,
+    // The name of a font to use for rendering text in the UI
+    // (On macOS) You can set this to ".SysmtemUIFont" to use the system font
+    "ui_font_family": "monospace",
+    // The OpenType features to enable for text in the UI
+    "ui_font_features": {
+        // Disable ligatures:
+        "calt": false
+    },
+    "ui_font_size": 16,
+    "buffer_font_size": 16,
+    "assistant": {
+        "button": false,
+        "enabled": false,
+        "version": "2"
+    },
+    "chat_panel": {
+        "button": false
+    },
+    "collaboration_panel": {
+        "button": false
+    },
+    "tab_size": 4,
+    "soft_wrap": "editor_width",
+    "languages": {
+        "C++": {
+            "preferred_line_length": 100,
+            "tab_size": 4
+        },
+        "HTML": {
+            "prettier": {
+                "allowed": true,
+                "tabWidth": 2
+            },
+            "preferred_line_length": 120
+        },
+        "Typst": {
+            "preferred_line_length": 120,
+            "soft_wrap": "preferred_line_length"
+        },
+        "Markdown": {
+            "preferred_line_length": 120,
+            "soft_wrap": "preferred_line_length"
+        }
+    },
+
+    "lsp": {
+        "rust-analyzer": {
+            "initialization_options": {
+                "checkOnSave": {
+                    "command": "clippy"
+                },
+                "clippy": {
+                    "features": "all"
+                },
+                "cargo": {
+                    "features": "all"
+                }
+            }
+        }
+    },
+    "format_on_save": "on"
+}

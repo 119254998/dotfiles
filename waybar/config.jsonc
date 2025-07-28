@@ -63,7 +63,7 @@
         "format-wifi": "",
         "format-disconnected": "disconnected",
         "format-ethernet": "",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": ""
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
