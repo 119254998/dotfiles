@@ -1,52 +1,35 @@
-local vim = vim
-local Plug = vim.fn['plug#']
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.call('plug#begin')
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
-Plug('nvim-lualine/lualine.nvim') -- statusline
-Plug('everviolet/nvim', { ['as'] = 'evergarden'}) -- theme
-Plug('neanias/everforest-nvim', { ['as'] = 'everforest'}) -- other theme
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate'}) -- treeshitter
-Plug('nvim-tree/nvim-tree.lua') -- explorer
-Plug('folke/which-key.nvim') -- show binds
-Plug('numToStr/Comment.nvim') -- comment binds
-Plug('romgrk/barbar.nvim') -- buffer bar
-Plug('echasnovski/mini.ai') -- better text objects NOT artificial intelligence
-Plug('echasnovski/mini.pairs') -- (), [], {}!
-Plug('echasnovski/mini.surround') -- add/replace/delete surrounding stuff
-Plug('mason-org/mason.nvim') -- language stuff manager (LSPs, linters, formatters, etc,.)
-Plug('akinsho/toggleterm.nvim', {['tag'] = '*'}) -- terminal buffer management help
-Plug('lewis6991/gitsigns.nvim') -- git signs in sign column !
-Plug('folke/todo-comments.nvim') -- fancy reverse highlighting on todos, etc,.
-Plug('neovim/nvim-lspconfig') -- yep!
-Plug('mason-org/mason-lspconfig.nvim') -- mason uses lspconfig names
-Plug('WhoIsSethDaniel/mason-tool-installer.nvim') -- automates mason stuff
-Plug('j-hui/fidget.nvim') -- nvim notification ui/lsp progress messages
-Plug('saghen/blink.cmp', { ['tag'] = 'v1.*'}) -- completion
-Plug('rachartier/tiny-inline-diagnostic.nvim') -- minimal diagnostics
-
-vim.call('plug#end')
-
-require('plugins.lualine')
-require('plugins.treesitter')
-require('plugins.which-key')
-require('plugins.comment')
-require('plugins.nvim-tree')
-require('plugins.barbar')
-require('plugins.mini')
-require('plugins.mason')
-require('plugins.toggleterm')
-require('plugins.gitsigns')
-require('plugins.todo-comments')
-require('plugins.mason-lspconfig')
-require('plugins.mason-tool-installer')
-require('plugins.fidget')
-require('plugins.blink')
-require('plugins.diagnostics')
-
-require('cfg.options')
-require('cfg.keymaps')
-require('cfg.autocmds')
-require('cfg.themes')
-
-vim.cmd('colorscheme evergarden')
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {
+    -- add your plugins here
+    { import = "plugins" },
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { "habamax" } },
+  -- automatically check for plugin updates
+  checker = { enabled = true },
+})
