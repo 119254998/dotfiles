@@ -12,7 +12,7 @@ require('barbar').setup({
     modified = {button = '~'},
   },
   sidebar_filetypes = {
-    NvimTree = {
+    NeoTree = {
       event = 'BufWinLeave',
       text = '',
       align = 'left'
