@@ -14,10 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 require("opts")
 require("keymaps")
 require("autocmds")
@@ -30,4 +26,8 @@ require("lazy").setup({
   install = { colorscheme = { "evergarden" } },
 
   checker = { enabled = true },
+  change_detection = {
+    enabled = true,
+    notify = false,
+  }
 })

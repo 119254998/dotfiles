@@ -17,6 +17,7 @@ return {
         changedelete = { text = '┃' },
         untracked    = { text = '┆' },
       },
+
       -- signs = {
       --   add          = { text = '+' },
       --   change       = { text = '~' },
