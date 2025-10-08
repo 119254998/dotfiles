@@ -21,7 +21,7 @@ return {
           default = "F",
           symlink = "S",
           bookmark = "B",
-          modified = "M",
+          modified = "~",
           hidden = "H",
           folder = {
             arrow_closed = "",
@@ -34,11 +34,11 @@ return {
             symlink_open = "",
           },
           git = {
-            unstaged = "X",
+            unstaged = "+",
             staged = "",
             unmerged = "#",
             renamed = "*",
-            untracked = "~",
+            untracked = "!",
             deleted = "-",
             ignored = "I",
           }
