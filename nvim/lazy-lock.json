@@ -1,7 +1,7 @@
 {
   "Coqtail": { "branch": "main", "commit": "b12c31e8aa8d0f3bddd9a804b315a0de0823b989" },
   "barbar.nvim": { "branch": "master", "commit": "549ee11d97057eae207bafa2c23c315942cca097" },
-  "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
+  "blink.cmp": { "branch": "main", "commit": "8483171db6c780545589e63160b020c6af3dedf4" },
   "candyland.nvim": { "branch": "main", "commit": "72407dd9f57ab3ee600a75fbc8b0ce9cd969d158" },
   "coq-lsp.nvim": { "branch": "main", "commit": "2a6ec9e86057f17950b72f496be675520d3d19f6" },
   "evergarden": { "branch": "main", "commit": "951d0c459f5d7fff8e90e0c0803dad8faf5180ff" },

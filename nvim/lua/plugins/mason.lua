@@ -2,6 +2,13 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {
+      ui = {
+        icons = {
+          package_installed = "o",
+          package_pending = "?",
+          package_uninstalled = "x"
+        }
+      },
       ensure_installed = {
         'tinymist',
         'coq_lsp',
