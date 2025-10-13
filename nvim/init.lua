@@ -14,17 +14,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("opts")
-require("keymaps")
-require("autocmds")
-
+require("cfg")
 require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-  },
-  -- colorscheme that will be used when installing plugins.
+  spec = { { import = 'plugins' } },
   install = { colorscheme = { "evergarden" } },
-
   checker = { enabled = true },
   change_detection = {
     enabled = true,

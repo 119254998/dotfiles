@@ -1,7 +1,7 @@
 return {
   "rachartier/tiny-inline-diagnostic.nvim",
   priority = 1000,
-  enabled = false,
+  enabled = true,
   opts = {
     preset = 'minimal',
   },

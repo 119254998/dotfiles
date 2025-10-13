@@ -7,8 +7,11 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 map('i', '<C-\\>', 'λ') -- yummy lambda
-map('n', '<Esc>', '<cmd>nohlsearch<CR>') -- clear hl from search, not a toggle
-map('t', '<Esc><Esc>', '<C-\\><C-n><CR>:ToggleTerm<CR>')
+map('n', '<Esc>', ':nohlsearch<CR>') -- clear hl from search, not a toggle
+map('n', '<leader>w', ':w<CR>')
+map('n', '<leader>q', ':q<CR>')
+map('n', '<leader>f', vim.lsp.buf.format)
+map('n', '<leader>z', ':update<CR>:source<CR>')
 
 -- window navigation
 map('n', '<A-Left>', '<C-w>h')
@@ -27,6 +30,7 @@ map('n', '<leader>e', ':NvimTreeToggle<CR>')
 
 -- toggleterm keymaps
 -- map('n', '<leader>t', ':ToggleTerm<CR>')
+-- map('t', '<Esc><Esc>', '<C-\\><C-n><CR>:ToggleTerm<CR>')
 
 -- barbar keymaps
 map('n', '<A-PageUp>', ':BufferPrevious<CR>')
