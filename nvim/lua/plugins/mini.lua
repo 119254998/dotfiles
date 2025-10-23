@@ -1,10 +1,11 @@
 return {
   {
-    'nvim-mini/mini.icons', version = false,
+    'nvim-mini/mini.icons',
+    version = false,
     init = function()
-      package.preload["nvim-web-devicons"] = function()
+      package.preload['nvim-web-devicons'] = function()
         require([[mini.icons]]).mock_nvim_web_devicons()
-        return package.loaded["nvim-web-devicons"]
+        return package.loaded['nvim-web-devicons']
       end
     end,
     config = function(_, opts)
@@ -14,31 +15,44 @@ return {
       style = 'ascii',
 
       -- Customize per category. See `:h MiniIcons.config` for details.
-      default   = {},
+      default = {},
       directory = {},
       extension = {},
-      file      = {},
-      filetype  = {},
-      lsp       = {},
-      os        = {},
+      file = {},
+      filetype = {},
+      lsp = {},
+      os = {},
 
       -- Control which extensions will be considered during "file" resolution
-      use_file_extension = function(ext, file) return true end,
-  }
-},
-{ 'nvim-mini/mini.ai', version = false,
-config = function(_, opts)
-  require([[mini.ai]]).setup(opts)
-end,
+      use_file_extension = function(ext, file)
+        return true
+      end,
+    },
   },
-  { 'nvim-mini/mini.pairs', version = false,
-  config = function(_, opts)
-    require([[mini.pairs]]).setup(opts)
-  end,
-},
-{ 'nvim-mini/mini.surround', version = false,
-config = function(_, opts)
-  require([[mini.surround]]).setup(opts)
-end,
+  {
+    'nvim-mini/mini.ai',
+    version = false,
+    config = function(_, opts)
+      require([[mini.ai]]).setup(opts)
+    end,
+  },
+  {
+    'nvim-mini/mini.pairs',
+    version = false,
+    config = function(_, opts)
+      require([[mini.pairs]]).setup(opts)
+    end,
+    opts = {
+      mappings = {
+        ['$'] = { action = 'open', pair = '$$', neigh_pattern = '[^\\].' },
+      },
+    },
+  },
+  {
+    'nvim-mini/mini.surround',
+    version = false,
+    config = function(_, opts)
+      require([[mini.surround]]).setup(opts)
+    end,
   },
 }

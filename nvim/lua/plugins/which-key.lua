@@ -1,11 +1,10 @@
 return {
-  "folke/which-key.nvim",
+  'folke/which-key.nvim',
   opts = {
-    preset = "helix",
+    preset = 'helix',
     icons = {
       mappings = false,
     },
-    spec = {
-    },
+    spec = {},
   },
 }

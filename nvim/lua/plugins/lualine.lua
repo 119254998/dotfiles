@@ -4,9 +4,9 @@ return {
     options = {
       icons_enabled = false,
       theme = 'evergarden',
-      component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
+      component_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
     },
-    extensions = {'nvim-tree'}
-  }
+    extensions = { 'nvim-tree' },
+  },
 }

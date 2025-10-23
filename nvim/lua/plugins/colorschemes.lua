@@ -1,9 +1,44 @@
 return {
   {
-    'AmberLehmann/candyland.nvim'
+    'AmberLehmann/candyland.nvim',
   },
   {
-    'everviolet/nvim', name = 'evergarden',
+    'navarasu/onedark.nvim',
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require([[onedark]]).setup({
+        style = 'warm',
+        transparent = true,
+        code_style = {
+          comments = 'none',
+          keywords = 'bold',
+        },
+      })
+    end,
+  },
+  {
+    'slugbyte/lackluster.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('lackluster').setup({
+        tweak_color = {
+          lack = '#6e566a',
+        },
+      })
+      -- require('lualine').setup({
+      --   options = {
+      --     theme = "lackluster",
+      --   },
+      -- })
+      -- vim.cmd.colorscheme('lackluster')
+      -- vim.cmd.colorscheme("lackluster-hack")
+      -- vim.cmd.colorscheme("lackluster-mint")
+    end,
+  },
+  {
+    'everviolet/nvim',
+    name = 'evergarden',
     lazy = false, -- load during startup
     priority = 1000, -- loaded first before any other startup plugins
     config = function(_, opts)
@@ -12,7 +47,7 @@ return {
     end,
     opts = {
       theme = {
-        variant = 'summer', -- 'winter'|'fall'|'spring'|'summer'
+        variant = 'winter', -- 'winter'|'fall'|'spring'|'summer'
         accent = 'purple',
       },
       editor = {
@@ -39,16 +74,15 @@ return {
         incsearch = { 'reverse' }, -- selected match
         types = { 'bold' },
         keyword = { 'bold' },
-        comment = { },
+        comment = {},
       },
       overrides = {
-        Normal = {
-        },
+        Normal = {},
         Keyword = {
           -- fg = '#5c6a72',
           -- bg = '#f3ead3',
         },
       },
-    }
+    },
   },
 }
