@@ -1,0 +1,88 @@
+" install plug!
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+filetype plugin indent on
+syntax on
+
+if &term =~ '256color'
+    set t_ut=
+endif
+
+set nocompatible
+set background=dark
+set backspace=indent,eol,start
+set relativenumber
+set noshowcmd
+set wrap
+set autoread
+set breakindent
+set undofile
+set expandtab
+set numberwidth=4
+set number
+set wmnu
+set scl="yes"
+set smarttab
+set tabstop=2
+set ls=2
+set shiftwidth=2
+set softtabstop=0
+set cursorline
+set expandtab
+set noai
+set cin
+set ttyfast
+set ignorecase
+set smartcase
+set scrolloff=10
+set hlsearch
+set termguicolors
+set list
+set listchars=tab:»-,trail:·,nbsp:␣
+set noshowmode
+
+let mapleader=" "
+let maplocalleader=" "
+
+nnoremap <Space> <Nop>
+nnoremap <Esc> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>z :update<CR>:so<CR>
+
+nnoremap <A-Left> <C-w>h
+nnoremap <A-Down> <C-w>j
+nnoremap <A-Up> <C-w>k
+nnoremap <A-Right> <C-w>l
+
+nnoremap <A-PageUp> :tabp<CR>
+nnoremap <A-PageDown> :tabn<CR>
+
+nnoremap <leader>e :NERDTreeToggle<CR>
+
+if !has('nvim') && &ttimeoutlen == -1
+  set ttimeout
+  set ttimeoutlen=100
+endif
+
+call plug#begin()
+
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
+Plug 'morhetz/gruvbox'
+
+call plug#end()
+colorscheme gruvbox
+
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ }
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+
+let NERDTreeMinimalUI=1
