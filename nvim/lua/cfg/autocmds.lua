@@ -54,6 +54,7 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'FileReadPre', 'BufNewFile', 'QuitPr
       vim.cmd([[TypstPreviewStop]])
     else
       vim.cmd([[TypstPreview]])
+      vim.cmd([[TypstPreviewNoFollowCursor]])
     end
   end,
 })

@@ -42,12 +42,10 @@ node_modules/
 __pycache__/
 
 # application specific
-.vim/plugged/
-.vim/autoload/plug.vim
 vim/plugged/
 vim/autoload/plug.vim
-.config/nvim/plugged/
-.config/git/credentials
+nvim/lazy-lock.json
+git/credentials
 
 # temp files
 tmp/
