@@ -3,40 +3,6 @@ return {
     'AmberLehmann/candyland.nvim',
   },
   {
-    'navarasu/onedark.nvim',
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      require([[onedark]]).setup({
-        style = 'warm',
-        transparent = true,
-        code_style = {
-          comments = 'none',
-          keywords = 'bold',
-        },
-      })
-    end,
-  },
-  {
-    'slugbyte/lackluster.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('lackluster').setup({
-        tweak_color = {
-          lack = '#6e566a',
-        },
-      })
-      -- require('lualine').setup({
-      --   options = {
-      --     theme = "lackluster",
-      --   },
-      -- })
-      -- vim.cmd.colorscheme('lackluster')
-      -- vim.cmd.colorscheme("lackluster-hack")
-      -- vim.cmd.colorscheme("lackluster-mint")
-    end,
-  },
-  {
     'everviolet/nvim',
     name = 'evergarden',
     lazy = false, -- load during startup

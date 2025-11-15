@@ -11,6 +11,7 @@ map('i', '<C-\\>', 'λ') -- yummy lambda
 map('n', '<Esc>', ':nohlsearch<CR>') -- clear hl from search, not a toggle
 map('n', '<leader>w', ':w<CR>', 'write current buffer')
 map('n', '<leader>q', ':q<CR>', 'quit out of current window')
+map({'n', 'v'}, ';', ':')
 map('n', '<leader>z', ':update<CR>:source<CR>', 'source current file')
 
 -- lsp binds
@@ -42,9 +43,10 @@ map('n', '<A-Right>', '<C-w>l', 'window nav right')
 -- nvim-tree keymaps
 map('n', '<leader>e', ':NvimTreeToggle<CR>', 'toggle file tree')
 
--- toggleterm keymaps
--- map('n', '<leader>t', ':ToggleTerm<CR>')
--- map('t', '<Esc><Esc>', '<C-\\><C-n><CR>:ToggleTerm<CR>')
+-- term keymaps
+-- these work but are kind of jank
+-- map('n', '<leader>t', '<C-w>s<C-w>J15<C-w>-:term<CR>')
+-- map('t', '<Esc><Esc>', '<C-\\><C-n>')
 
 -- barbar keymaps
 map('n', '<A-PageUp>', ':BufferPrevious<CR>', 'previous buffer')

@@ -3,6 +3,6 @@ return {
   lazy = false, -- or ft = 'typst'
   version = '1.*',
   opts = {
-    invert_colors = 'auto',
+    -- invert_colors = 'auto',
   }, -- lazy.nvim will implicitly calls `setup {}`
 }
