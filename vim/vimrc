@@ -8,6 +8,12 @@ endif
 filetype plugin indent on
 syntax on
 
+let &t_SI = "\e[5 q"   " cursor in insert mode
+let &t_EI = "\e[2 q"   " cursor in normal mode
+let &t_SR = "\e[3 q"   " cursor in replace mode
+let &t_ti .= "\e[2 q"  " cursor when vim starts
+let &t_te .= "\e[3 q"  " cursor when vim exits
+
 if &term =~ '256color'
     set t_ut=
 endif
@@ -43,7 +49,9 @@ set hlsearch
 set termguicolors
 set list
 set listchars=tab:»-,trail:·,nbsp:␣
-set noshowmode
+set showmode
+set ttimeout
+set ttimeoutlen=1
 
 let mapleader=" "
 let maplocalleader=" "
@@ -52,6 +60,7 @@ nnoremap <Space> <Nop>
 nnoremap <leader><Esc> :nohlsearch<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap ; :
 
 nnoremap <A-Left> <C-w>h
 nnoremap <A-Down> <C-w>j
@@ -63,24 +72,30 @@ nnoremap <A-PageDown> :tabn<CR>
 
 nnoremap <leader>e :NERDTreeToggle<CR>
 
-if !has('nvim') && &ttimeoutlen == -1
-  set ttimeout
-  set ttimeoutlen=100
-endif
-
 call plug#begin()
 
 Plug 'sheerun/vim-polyglot'
-Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
-Plug 'morhetz/gruvbox'
+Plug 'nikolvs/vim-sunbather'
 
+" Plug 'axvr/photon.vim'
+" Plug 'sainnhe/everforest'
+" Plug 'itchyny/lightline.vim'
+"
 call plug#end()
-colorscheme gruvbox
 
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ }
+" let g:everforest_background = 'hard'
+" let g:everforest_disable_italic_comment = 1
+" let g:everforest_transparent_background = 2
+" let g:everforest_better_performance = 1
+
+colorscheme sunbather
+
+" let g:lightline = {
+"       \ 'colorscheme': 'seoul256',
+"       \ }
+
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 
