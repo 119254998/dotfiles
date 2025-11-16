@@ -44,6 +44,7 @@ __pycache__/
 # application specific
 vim/plugged/
 vim/autoload/plug.vim
+vim/.netrwhist
 nvim/lazy-lock.json
 git/credentials
 
