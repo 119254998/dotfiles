@@ -11,7 +11,7 @@ map('i', '<C-\\>', 'λ') -- yummy lambda
 map('n', '<Esc>', ':nohlsearch<CR>') -- clear hl from search, not a toggle
 map('n', '<leader>w', ':w<CR>', 'write current buffer')
 map('n', '<leader>q', ':q<CR>', 'quit out of current window')
-map({'n', 'v'}, ';', ':')
+-- map({'n', 'v'}, ';', ':')
 map('n', '<leader>z', ':update<CR>:source<CR>', 'source current file')
 
 -- lsp binds
@@ -26,7 +26,7 @@ map('n', '<leader>ls', vim.lsp.buf.signature_help, 'show function signature')
 map('n', '<leader>lw', vim.lsp.buf.workspace_symbol, 'search in current workspace')
 map('n', '<leader>lo', vim.diagnostic.open_float)
 map('n', '<leader>lR', vim.lsp.buf.rename, 'rename all references of a symbol')
-map('n', '<leader>lC', vim.lsp.buf.code_action, 'select code action at cursor')
+map('n', '<leader>lc', vim.lsp.buf.code_action, 'select code action at cursor')
 
 -- window navigation
 map('n', '<A-Left>', '<C-w>h', 'window nav left')
