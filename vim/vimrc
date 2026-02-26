@@ -14,9 +14,12 @@ let &t_SR = "\e[3 q"   " cursor in replace mode
 let &t_ti .= "\e[2 q"  " cursor when vim starts
 let &t_te .= "\e[3 q"  " cursor when vim exits
 
-if &term =~ '256color'
-    set t_ut=
-endif
+" if &term =~ '256color'
+"     set t_ut=
+" endif
+let &t_ut=''
+scriptencoding utf-8
+set encoding=utf-8
 
 set nocompatible
 set background=dark
