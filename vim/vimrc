@@ -63,7 +63,7 @@ nnoremap <Space> <Nop>
 nnoremap <leader><Esc> :nohlsearch<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap ; :
+" nnoremap ; :
 
 nnoremap <A-Left> <C-w>h
 nnoremap <A-Down> <C-w>j
