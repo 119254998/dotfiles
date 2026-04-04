@@ -9,6 +9,7 @@ return {
     priority = 1000, -- loaded first before any other startup plugins
     config = function(_, opts)
       require([[evergarden]]).setup(opts)
+      -- vim.cmd([[colorscheme candyland]])
       vim.cmd([[colorscheme evergarden]])
     end,
     opts = {

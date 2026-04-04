@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'FileReadPre', 'BufNewFile', 'QuitPr
     if e.event == 'QuitPre' then
       vim.cmd([[TypstPreviewStop]])
     else
+      MiniPairs.map_buf(0, 'i', '$', { action = 'closeopen', pair = '$$' })
       vim.cmd([[TypstPreview]])
       vim.cmd([[TypstPreviewNoFollowCursor]])
     end

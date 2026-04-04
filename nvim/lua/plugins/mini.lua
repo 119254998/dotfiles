@@ -44,7 +44,6 @@ return {
     end,
     opts = {
       mappings = {
-        ['$'] = { action = 'open', pair = '$$', neigh_pattern = '[^\\].' },
       },
     },
   },
