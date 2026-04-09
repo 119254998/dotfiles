@@ -1,19 +1,13 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  version = false,
   init = function(plugin)
     require('lazy.core.loader').add_to_rtp(plugin)
-    require('nvim-treesitter.query_predicates')
-  end,
-  build = ':TSUpdate',
-  lazy = false,
-  opts = {
-    auto_install = true,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-    },
-    ensure_installed = {
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
+    })
+    local ensure_installed = {
       'bash',
       'c',
       'diff',
@@ -39,9 +33,16 @@ return {
       'xml',
       'yaml',
       'rust',
-    },
-  },
-  config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
+    }
+    local installed = require('nvim-treesitter.config').get_installed()
+    local parsers = vim
+      .iter(ensure_installed)
+      :filter(function(parser)
+        return not vim.tbl_contains(installed, parser)
+      end)
+      :totable()
+    require('nvim-treesitter').install(parsers)
   end,
+  build = ':TSUpdate',
+  lazy = false,
 }
