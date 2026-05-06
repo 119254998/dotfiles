@@ -8,9 +8,10 @@ return {
     lazy = false, -- load during startup
     priority = 1000, -- loaded first before any other startup plugins
     config = function(_, opts)
-      require([[evergarden]]).setup(opts)
+      -- require([[evergarden]]).setup(opts)
       -- vim.cmd([[colorscheme candyland]])
-      vim.cmd([[colorscheme evergarden]])
+      -- vim.cmd([[colorscheme evergarden]])
+      vim.cmd([[colorscheme hubbamax]])
     end,
     opts = {
       theme = {
@@ -51,5 +52,10 @@ return {
         },
       },
     },
+  },
+  {
+    'alexpasmantier/hubbamax.nvim',
+    lazy = false,
+    priority = 1000,
   },
 }

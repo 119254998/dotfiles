@@ -1,13 +1,8 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   init = function(plugin)
-    require('lazy.core.loader').add_to_rtp(plugin)
-    vim.api.nvim_create_autocmd('FileType', {
-      callback = function()
-        pcall(vim.treesitter.start)
-      end,
-    })
-    local ensure_installed = {
+    -- require('lazy.core.loader').add_to_rtp(plugin)
+    vim.g.ts_install = {
       'bash',
       'c',
       'diff',
@@ -15,10 +10,7 @@ return {
       'javascript',
       'jsdoc',
       'json',
-      'jsonc',
       'lua',
-      'luadoc',
-      'luap',
       'markdown',
       'markdown_inline',
       'printf',
@@ -34,14 +26,21 @@ return {
       'yaml',
       'rust',
     }
-    local installed = require('nvim-treesitter.config').get_installed()
-    local parsers = vim
-      .iter(ensure_installed)
-      :filter(function(parser)
-        return not vim.tbl_contains(installed, parser)
+    local ts_install = vim.g.ts_install or {}
+    local ts_filetypes = vim
+      .iter(ts_install)
+      :map(function(lang)
+        return vim.treesitter.language.get_filetypes(lang)
       end)
+      :flatten()
       :totable()
-    require('nvim-treesitter').install(parsers)
+    require('nvim-treesitter').install(ts_install)
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = ts_filetypes,
+      callback = function(e)
+        vim.treesitter.start(e.buf)
+      end,
+    })
   end,
   build = ':TSUpdate',
   lazy = false,

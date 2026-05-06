@@ -6,12 +6,7 @@ return {
   },
   config = function()
     require('mason').setup()
-    require('mason-lspconfig').setup({
-      -- automatic_enable = {
-      --   exclude = { 'rust_analyzer' },
-      -- },
-    })
-
+    require('mason-lspconfig').setup()
     -- vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
   end,
 }
